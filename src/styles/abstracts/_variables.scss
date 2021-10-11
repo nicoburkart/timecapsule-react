@@ -1,0 +1,25 @@
+//general colors
+$primary-color: #6888CA;
+
+//typography colors
+$font-color-darker: #2F2E2E;
+$font-color-dark: #404040;
+
+$font-color-light: white;
+
+//typography
+$ff_bold: p-bold;
+$ff_s_bold: p-semi-bold;
+$ff_reg: p-regular;
+$ff_light: p-light;
+
+$fs_xl: clamp(3.5rem, 8vw, 8rem);
+
+//breakpoints
+$sd: "576px";
+$md: "768px";
+$ld: "992px";
+$eld: "1225px";
+
+//other
+$nav-height: 65px;

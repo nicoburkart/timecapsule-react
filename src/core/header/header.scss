@@ -1,0 +1,19 @@
+@import "styles/abstracts/variables";
+
+#header {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: $nav-height;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border-bottom: solid rgba(255, 255, 255, 0.2) 1px;
+    
+
+    .section-header {
+        color: $font-color-light;
+        margin: unset;
+        height: unset;
+    }
+}

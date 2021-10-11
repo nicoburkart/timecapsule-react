@@ -1,0 +1,25 @@
+
+.btn {
+    min-width: 170px;
+    padding: 0.7rem 3rem;
+    box-sizing: content-box;
+    margin-top: 2rem;
+    cursor: pointer;
+}
+
+.primary-btn {
+    @extend .btn;
+
+}
+
+.secondary-btn {
+    @extend .btn;
+    color: $font-color-light;
+    position: relative;
+    border-radius: 50px;
+    background: linear-gradient(to right, #FFA8A8, #FF8AEC);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
