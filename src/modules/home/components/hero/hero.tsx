@@ -1,6 +1,7 @@
-import { Component } from 'react';
+import { Component, createRef } from 'react';
 import HeroBackgroundImage from 'assets/images/hero-background.svg';
 import HeroLine from 'assets/images/hero-line.svg';
+import { Link } from 'react-scroll';
 
 import './hero.scss';
 
@@ -23,7 +24,16 @@ class Hero extends Component {
               <br />
               Blockchain
             </h1>
-            <button className="secondary-btn">Learn More</button>
+
+            <Link
+              to="time-capsule-section"
+              spy={true}
+              smooth={true}
+              duration={500}
+              offset={-50}
+            >
+              <button className="primary-btn">Create Capsule</button>
+            </Link>
           </div>
 
           <div className="hero-animation">

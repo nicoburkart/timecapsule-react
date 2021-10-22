@@ -18,8 +18,8 @@ class Features extends Component {
             <h3 className="sub-section-header">Time Capsule Contract</h3>
             <p>
               With the time capsule contract you will be able to decide when
-              money should be trasmitted to its recipient. For example 1 month
-              or even 50 years.
+              money should be trasmitted to a selected recipient. For example 1
+              month or even 50 years.
             </p>
           </div>
           <div className="feature">
@@ -27,7 +27,7 @@ class Features extends Component {
             <h3 className="sub-section-header">High Security</h3>
             <p>
               The time capsule will be saved on a smart contract on the Ethereum
-              blockchain. Thus the security is provided by the ethereum network.
+              blockchain. Thus the security is provided by the Ethereum network.
             </p>
           </div>
           <div className="feature">

@@ -44,7 +44,7 @@
       text-align: center;
       font-size: 2.8rem;
     }
-    .secondary-btn {
+    .primary-btn {
       margin-left: auto;
       margin-right: auto;
     }
@@ -112,8 +112,18 @@
         text-align: left;
         font-size: 6vw;
       }
-      .secondary-btn {
+      .primary-btn {
         margin-left: unset;
+      }
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero {
+    .hero-text {
+      .header {
+        font-size: 86px;
       }
     }
   }

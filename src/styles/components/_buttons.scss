@@ -1,25 +1,37 @@
+@import '../abstracts/variables';
 
 .btn {
-    min-width: 170px;
-    padding: 0.7rem 3rem;
-    box-sizing: content-box;
-    margin-top: 2rem;
-    cursor: pointer;
+  min-width: 170px;
+  padding: 0.7rem 3rem;
+  box-sizing: content-box;
+  margin-top: 2rem;
+  cursor: pointer;
 }
 
 .primary-btn {
-    @extend .btn;
+  @extend .btn;
+  color: $font-color-light;
+  position: relative;
+  border-radius: 50px;
+  background: linear-gradient(to right, #ffa8a8, #ff8aec);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.input-btn {
+  position: absolute;
+  cursor: pointer;
+  right: 0.3rem;
+  bottom: 0.5rem;
+  font-size: 1rem;
+  padding: 0.3rem 1.5rem;
+  border-radius: 50px;
+  background: linear-gradient(to right, #ffa8a8, #ff8aec);
+  font-family: $ff_reg;
+  color: $font-color-light;
 }
 
 .secondary-btn {
-    @extend .btn;
-    color: $font-color-light;
-    position: relative;
-    border-radius: 50px;
-    background: linear-gradient(to right, #FFA8A8, #FF8AEC);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  @extend .btn;
 }
-
