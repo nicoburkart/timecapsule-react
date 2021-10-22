@@ -1,33 +1,34 @@
-@import "styles/abstracts/variables";
+@import 'styles/abstracts/variables';
 
 #footer {
-    height: 600px;
-    width: 100%;
-    margin-top: 6rem;
-    background-image: url("/assets/images/footer-background-wave.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 600px;
+  width: 100%;
+  margin-top: 6rem;
+  background-image: url('/assets/images/footer-background-wave.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    .header {
-        font-size: 10vw;
-        color: $font-color-light;
-    }
+  .header {
+    font-size: 10vw;
+    color: $font-color-light;
+  }
 }
 
-
-
 @media (min-width: $eld) {
-
-    .footer {
-        .header {
-            font-size: 6rem;
-        }
+  .footer {
+    .header {
+      font-size: 6rem;
     }
+  }
+}
 
-    
-    
-
+@media (min-width: 1440px) {
+  #footer {
+    .header {
+      font-size: 86px;
+    }
+  }
 }

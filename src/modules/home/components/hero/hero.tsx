@@ -23,7 +23,7 @@ class Hero extends Component {
               <br />
               Blockchain
             </h1>
-            <button className="secondary-btn">Learn More</button>
+            <button className="primary-btn">Learn More</button>
           </div>
 
           <div className="hero-animation">

@@ -16,7 +16,9 @@ class HowItWorks extends Component {
             <img src={Ill1} alt="guy with a wallet holding a coin" />
             <h3 className="sub-section-header">Connect Your Wallet</h3>
             <p>
-              Send your coins through <br /> Metamask
+              Install Metamask in your Browser
+              <br />
+              to connect your wallet
             </p>
           </div>
           <div className="step">
@@ -30,7 +32,7 @@ class HowItWorks extends Component {
             <img src={Ill3} alt="guy next to a wallet holding a coin" />
             <h3 className="sub-section-header">Recipient Gets The Money</h3>
             <p>
-              Someone is going to be very <br /> happy in a few months/years...
+              The capsule can be opened <br /> with the receipients address
             </p>
           </div>
         </div>

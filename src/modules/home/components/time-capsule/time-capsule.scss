@@ -1,3 +1,5 @@
+@import 'styles/abstracts/variables';
+
 .time-capsule-section {
   .container {
     width: 100%;
@@ -5,8 +7,8 @@
 
   .time-capsule {
     width: 100%;
-    height: 700px;
     box-shadow: 2px 8px 20px rgba(0, 36, 222, 0.4);
+    overflow: hidden;
     border-radius: 10px;
     background-color: white;
     background: linear-gradient(
@@ -14,5 +16,93 @@
       #fefefe 0%,
       rgba(254, 254, 254, 0) 100%
     );
+  }
+
+  .time-capsule-header {
+    display: flex;
+    width: 100%;
+
+    .register-card {
+      width: 50%;
+      background-color: #90a6d6;
+      box-shadow: inset 4px -4px 20px rgba(106, 136, 200, 0.75);
+      cursor: pointer;
+      transition: 50ms;
+      padding: 1.2rem;
+      .sub-section-header {
+        margin: 0;
+        color: $font-color-light;
+      }
+      &.active {
+        background-color: transparent;
+        box-shadow: none;
+        .sub-section-header {
+          color: $font-color-dark;
+        }
+      }
+    }
+  }
+
+  .disabled {
+    opacity: 0.5;
+  }
+
+  .create-time-capsule {
+    .form-group.sender-information {
+      flex-direction: column;
+
+      .input-group {
+        min-width: 0;
+        flex-shrink: 2;
+      }
+      .paper-plane {
+        height: 80px;
+        transform: translateY(15px);
+      }
+    }
+  }
+
+  .input-group.colorful {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    .form-control {
+      border-image-source: linear-gradient(to right, #ffa8a8, #ff8aec);
+      border-width: 3px;
+      border-image-slice: 1;
+      background: linear-gradient(to bottom, #ffa8a8, #ff8aec);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .form-group.date {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    .input-group {
+      min-width: 0;
+      flex-shrink: 3;
+      box-sizing: border-box;
+    }
+  }
+
+  .primary-btn {
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 700px;
+    border-radius: 10px;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: $sd) {
+  .time-capsule-section .create-time-capsule {
+    .form-group.sender-information {
+      flex-direction: row;
+    }
   }
 }
