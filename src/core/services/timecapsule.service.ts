@@ -13,7 +13,7 @@ export class TimeCapsuleService {
   private web3: any;
   contract: any;
 
-  async initWeb3() {
+  async initWeb3(): Promise<boolean> {
     if (window.ethereum) {
       this.web3Provider = window.ethereum;
       try {
@@ -27,17 +27,21 @@ export class TimeCapsuleService {
     //legacy dapp browsers
     else if (window.web3) {
       this.web3Provider = window.web3.currentProvider;
+    } else {
+      console.log('no web3 provider found');
+      return Promise.resolve(false);
     }
 
     //ACHTUNG nur für development verwenden! Unsicher und ungeeignet für prod
     //Wenn kein injected web3 Objekt präsent ist, wird eins über den lokalen provider erstellt (Ganache)
-    else {
+    /* else {
       this.web3Provider = new Web3.providers.HttpProvider(
         'http://localhost:7545'
       );
-    }
+    } */
     this.web3 = new Web3(this.web3Provider);
     this.initContract();
+    return Promise.resolve(true);
   }
 
   getAccounts(): Promise<string> {

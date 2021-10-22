@@ -11,9 +11,9 @@ class TimeCapsule extends Component {
       senderAddress: '',
       recipientAddress: '',
       amount: 0,
-      year: 2021,
-      month: 10,
-      day: 20,
+      year: new Date().getFullYear(),
+      month: new Date().getMonth() + 1,
+      day: new Date().getDate(),
       hour: 0,
       minute: 0,
     },
@@ -48,11 +48,16 @@ class TimeCapsule extends Component {
 
   componentDidMount = async () => {
     this.service = new TimeCapsuleService();
-    await this.service.initWeb3();
-    const accounts = await this.service.getAccounts();
+    let account = '';
+    if (await this.service.initWeb3()) {
+      account = await this.service.getAccounts();
+    } else {
+      window.alert('please install MetaMask plugin in chrome and refresh');
+    }
+
     this.setState({
       creationCapsule: {
-        senderAddress: accounts[0],
+        senderAddress: account,
         recipientAddress: '',
         amount: 0,
         year: this.state.creationCapsule.year,
@@ -80,55 +85,66 @@ class TimeCapsule extends Component {
 
   async createCapsule(event: FormEvent) {
     event.preventDefault();
-
-    const openingTime = new Date(
-      this.state.creationCapsule.year +
-        '-' +
-        this.state.creationCapsule.month +
-        '-' +
-        this.state.creationCapsule.day +
-        ' ' +
-        this.state.creationCapsule.hour +
-        ':' +
-        this.state.creationCapsule.minute
-    ).valueOf();
-
-    console.log(
-      'trying to create a capsule with values: ',
-
-      this.state.creationCapsule.recipientAddress
-    );
-
-    try {
-      const success = await this.service.createCapsule(
-        this.state.creationCapsule.senderAddress,
-        this.state.creationCapsule.recipientAddress,
-        this.state.creationCapsule.amount,
-        openingTime
+    if (process.env.NODE_ENV === 'production') {
+      window.alert(
+        'The smart contract is currently not deployed on the mainnet.'
       );
-      console.log(success);
-    } catch (error) {
-      console.log(error);
+    } else {
+      const openingTime = new Date(
+        this.state.creationCapsule.year +
+          '-' +
+          this.state.creationCapsule.month +
+          '-' +
+          this.state.creationCapsule.day +
+          ' ' +
+          this.state.creationCapsule.hour +
+          ':' +
+          this.state.creationCapsule.minute
+      ).valueOf();
+
+      console.log(
+        'trying to create a capsule with values: ',
+
+        this.state.creationCapsule.recipientAddress
+      );
+
+      try {
+        const success = await this.service.createCapsule(
+          this.state.creationCapsule.senderAddress,
+          this.state.creationCapsule.recipientAddress,
+          this.state.creationCapsule.amount,
+          openingTime
+        );
+        console.log(success);
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 
   async getCapsule(event: FormEvent) {
     event.preventDefault();
-    try {
-      const capsule = await this.service.getCapsuleAt(
-        this.state.openingCapsule.recipientAddress
+    if (process.env.NODE_ENV === 'production') {
+      window.alert(
+        'The smart contract is currently not deployed on the mainnet.'
       );
+    } else {
+      try {
+        const capsule = await this.service.getCapsuleAt(
+          this.state.openingCapsule.recipientAddress
+        );
 
-      this.setState({
-        openingCapsule: {
-          senderAddress: capsule[0],
-          recipientAddress: capsule[1],
-          amount: Web3.utils.fromWei(String(BigInt(capsule[2])), 'ether'),
-          openingDate: capsule[3].toNumber(),
-        },
-      });
-    } catch (error) {
-      console.error(error);
+        this.setState({
+          openingCapsule: {
+            senderAddress: capsule[0],
+            recipientAddress: capsule[1],
+            amount: Web3.utils.fromWei(String(BigInt(capsule[2])), 'ether'),
+            openingDate: capsule[3].toNumber(),
+          },
+        });
+      } catch (error) {
+        console.error(error);
+      }
     }
   }
 
